@@ -1,0 +1,56 @@
+/* Dashboard container */
+.dashboard {
+  padding: 20px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+/* Dashboard title */
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Box container */
+.box-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Box */
+.box {
+  width: 48%; /* Adjust as needed */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Icon */
+.icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 400px; /* Adjust the height of the chart */
+}
+
+/* Adjustments for the chart */
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Chart title */
+.chart-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}

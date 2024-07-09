@@ -1,0 +1,62 @@
+/* CoordinatorSubmissionWindow.css */
+
+.submission-window-container {
+    margin: 20px auto; /* Adjust margin to center horizontally */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.side-menu-container{
+  flex-direction: column;
+  align-items: Left;
+  justify-content: Left;
+  text-align: Left;
+}
+  
+  .submission-window-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .submission-window-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submission-window-container label {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .submission-window-container input[type="datetime-local"] {
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .submission-window-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submission-window-container button:hover {
+    background-color: #0056b3;
+  }
+  

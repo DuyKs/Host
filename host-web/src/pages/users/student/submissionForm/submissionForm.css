@@ -1,0 +1,123 @@
+.submission-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  .submission-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submission-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .submission-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .submission-form label {
+    font-weight: bold;
+  }
+  
+  .submission-form input,
+  .submission-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .submission-form input[type='submit'] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submission-form input[type='submit']:hover {
+    background-color: #0056b3;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align form elements to the left */
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type='text'],
+  textarea,
+  input[type='file'] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+  }
+  
+  .preview {
+    max-width: 100%;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #000000;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  h2{
+    color: rgb(0, 0, 0);
+  }
+  label{
+    color: rgb(0, 0, 0);
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .checkbox-label {
+  align-items: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+  transform: scale(1.5); /* Make the checkbox 50% bigger */
+  align-self: flex-start; /* Align the checkbox to the left */
+}
+.edit-heading {
+  /* Add your styles for editing heading here */
+  color: black !important;
+}
+
+.submit-heading {
+  /* Add your styles for submitting heading here */
+  color: green; /* For example: change color to green */
+}
