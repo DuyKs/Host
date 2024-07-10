@@ -25,9 +25,6 @@
     display: flex;
     flex-direction: row;
 }
-.magazine__navbar-links_container p a {
-    color: #ffffff; /* Initially, make the link text transparent */
-  }
 
 .magazine__navbar-sign {
     display: flex;

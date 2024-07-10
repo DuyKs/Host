@@ -46,7 +46,6 @@ input[type="password"] {
 
 .btn-login {
   font-family: var(--font-family);
-  margin-top: 10px;
   display: block;
   width: 100%;
   padding: 15px; /* Increase padding for button */
