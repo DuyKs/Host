@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 // Enable CORS
 app.use(cors());
 
+// Use for purpose of storing the PDG and Images when upload submission
 // Serve uploaded files statically
 app.use('/uploads', express.static('uploads'));
 
