@@ -1,0 +1,67 @@
+/* status.css */
+
+.status-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #040C18; /* Background color */
+  color: #000000; /* Black text */
+  padding: 40px 0; /* Adjust top and bottom padding */
+}
+
+.status-content {
+  max-width: 800px;
+}
+.status-content h2{
+  color: white;
+}
+.magazine-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.magazine-status {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #000000; /* Black text */
+}
+
+.magazine-status h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #000000; /* Black text */
+}
+
+.magazine-status p {
+  margin: 0;
+  color: #000000; /* Black text */
+}
+
+.comments {
+  margin-top: 10px;
+}
+
+.comments h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000; /* Black text */
+}
+
+.comments ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.comments li {
+  margin-bottom: 5px;
+  color: #000000; /* Black text */
+}
+
+.side-menu {
+  /* Add styles for side menu if needed */
+}

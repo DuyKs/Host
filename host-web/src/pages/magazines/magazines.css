@@ -1,0 +1,87 @@
+.library {
+  margin: 20px;
+}
+.library h2{
+  margin: 20px;
+  color: white;
+}
+.magazine-container {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure the magazines don't wrap to the next line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px; /* Spacing between magazines */
+}
+
+.magazine {
+  flex: 0 0 auto; /* Ensure magazines don't shrink */
+  width: 250px; /* Set a fixed width for each magazine */
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.magazine img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.magazine-info h3 {
+  margin-top: 0;
+}
+
+.magazine-info p {
+  margin: 5px 0;
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+.form {
+  /* Add form styles here */
+}
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.back-button:focus {
+  outline: none;
+}
+
+.back-button:hover {
+  color: #555;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.5rem;
+  margin-right: 10px; /* Add margin to separate the button from the h2 */
+}
+
+.back-button:focus {
+  outline: none;
+}
+
+.back-button:hover {
+  color: #555;
+}
+
+h2 {
+  margin: 0;
+}
