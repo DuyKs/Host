@@ -1,7 +1,5 @@
-import BackGround from '../../pictures/BackGround.jpg';
-import Icon from '../../pictures/Success.png';
+import BackGround from '../../AObject/BackGround.jpg';
 
 export {
     BackGround,
-    Icon,
 };

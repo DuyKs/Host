@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { BackGround } from './imports';
-import './login.css';
+/*import React, { useState } from 'react';
+import { BackGround } from '../login/imports';
+import './loginTest.css';
 
-const Login = () => {
+const LoginTest = () => {
   const [formData, setFormData] = useState({ fullName: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -57,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container" style={{ backgroundImage: `url(${BackGround})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
+    <div className="login-container" style={{ backgroundImage: `url(${BackGround})` }}>
       <div className="login-box">
         <h2>Login</h2>
         <form className="login-form" onSubmit={handleSubmit}>
@@ -72,10 +71,9 @@ const Login = () => {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-        <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginTest;*/

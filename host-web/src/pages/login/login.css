@@ -76,36 +76,3 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
-/* login.css */
-
-.nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0); /* Translucent black background */
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-}
-
-.back-button {
-  background: none;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.back-button:hover {
-  opacity: 0.8;
-}
-
-.login-container {
-  position: relative;
-  padding-top: 60px; /* Adjust content position to account for the navigation bar */
-}
-
-/* Rest of your existing CSS for the login form */

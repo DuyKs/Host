@@ -9,11 +9,9 @@
   
   .register-box {
     max-width: 500px; /* Adjust the max-width as needed */
-    width: 450px; /* Adjust the max-width as needed */
-    padding: 60px; /* Increase padding for more space inside the box */
-    margin: 20px; /* Add margin to increase the height */
+    padding: 40px; /* Increase padding for more space inside the box */
     border: 1px solid #ccc;
-    border-radius: 50px; /* Increase border-radius for a more circular appearance */
+    border-radius: 20px; /* Increase border-radius for a more circular appearance */
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for better appearance */
   }
