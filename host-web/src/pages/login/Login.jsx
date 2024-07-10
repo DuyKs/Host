@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!formData.username || !formData.password) {
-      setError('Username and Password are required.');
+      setError('Username and Password are required for login.');
       return;
     }
   
