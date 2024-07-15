@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BackGround } from './imports';
 import { FaArrowLeft } from 'react-icons/fa'; // Importing the left arrow icon
@@ -9,6 +9,10 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log('Server URL:', process.env.REACT_APP_SERVER_URL);
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,8 +32,12 @@ const Login = () => {
     setLoading(true);
     setError(null);
   
+    // Construct the URL
+    const url = `${process.env.REACT_APP_SERVER_URL}/login`;
+    console.log('Request URL:', url); // Print the constructed URL
+  
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,8 +80,7 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-  };
-
+  };  
 
   return (
     <div className="login-container" style={{ backgroundImage: `url(${BackGround})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
