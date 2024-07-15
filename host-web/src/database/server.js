@@ -125,32 +125,26 @@
 
 
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../.env') }); // Adjust path to access .env outside of database
-
-console.log('MONGODB_URI:', process.env.MONGODB_URI);
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Import the cors middleware
+const cors = require('cors');
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const User = require('./User');
 const Faculty = require('./Faculty');
 
 const app = express();
-const port = process.env.MONGODB_PORT || 5000; // Use environment variable for port
+const port = process.env.MONGODB_PORT || 5000;
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
+  .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
 
-// Middleware
 app.use(bodyParser.json());
-
-// Enable CORS
 app.use(cors());
 
 // Route to fetch all users
@@ -224,14 +218,76 @@ app.get('/getAllFaculties', async (req, res) => {
   }
 });
 
-// Route to add a new user
+// Route to add a new user (Admin or Authorized User)
 app.post('/addUser', async (req, res) => {
+  const { username, email } = req.body;
+
   try {
-    const newUser = new User(req.body);
-    await newUser.save();
-    res.status(201).json({ message: 'User added successfully' });
+    const user = new User({ username, email, isActive: false });
+    await user.save();
+
+    // Generate a token for setting password via email
+    const token = crypto.randomBytes(32).toString('hex');
+    user.passwordResetToken = token;
+    user.passwordResetExpires = Date.now() + 3600000; // 1 hour
+    await user.save();
+
+    // Send an email with a link to set the password
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // Update with your email service provider
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    });
+
+    const mailOptions = {
+      to: user.email,
+      from: process.env.EMAIL,
+      subject: 'Set your password',
+      text: `Please click on the following link, or paste it into your browser to set your password:\n\n
+        http://${req.headers.host}/set-password/${token}\n\n`
+    };
+
+    transporter.sendMail(mailOptions, (err) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error sending email' });
+      }
+      res.status(200).json({ message: 'User added successfully, please check your email to set your password' });
+    });
   } catch (error) {
     console.error('Error adding user:', error);
+    res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+  }
+});
+
+// User sets password via email link
+app.post('/set-password/:token', async (req, res) => {
+  const { token } = req.params;
+  const { password } = req.body;
+
+  try {
+    // Find the user by the password reset token
+    const user = await User.findOne({
+      passwordResetToken: token,
+      passwordResetExpires: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
+    }
+
+    // Hash the new password and save it to the user record
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+    user.isActive = true; // Activate user account
+    await user.save();
+
+    res.status(200).json({ message: 'Password has been set successfully.' });
+  } catch (error) {
+    console.error('Error setting password:', error);
     res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
   }
 });
@@ -264,3 +320,4 @@ app.delete('/deleteUser/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
