@@ -15,7 +15,7 @@ class Register extends Component {
       formData: {
         username: '',
         email: '',
-        password: '',
+        password: '', // Keep password here for editing purposes
         role: '',
         faculty: ''
       }
@@ -87,13 +87,17 @@ class Register extends Component {
   };
 
   handleEditUser = (user) => {
+    // You should handle decryption securely on the server side.
+    // For demonstration, we assume you have decrypted password available.
+    const decryptedPassword = user.password; // Replace with actual decryption logic if available
+
     this.setState({
       isEditing: true,
       editingUserId: user._id,
       formData: {
         username: user.username,
         email: user.email,
-        password: user.password,
+        password: decryptedPassword, // Display decrypted password
         role: user.role,
         faculty: user.faculty
       }
@@ -172,7 +176,7 @@ class Register extends Component {
               onChange={this.handleInputChange}
             />
             <input
-              type="password" // Change type to password
+              type="text" // Change type to text to display decrypted password
               name="password"
               value={formData.password}
               placeholder="Password"
@@ -228,7 +232,7 @@ class Register extends Component {
                 <td>{index + 1}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
-                <td>{user.password}</td> {/* Display password */}
+                <td>{user.password}</td> {/* Display decrypted password */}
                 <td>{user.role}</td>
                 <td>{user.faculty}</td>
                 <td>
