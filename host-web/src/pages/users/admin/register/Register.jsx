@@ -29,7 +29,7 @@ class Register extends Component {
 
   fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getAllUsers');
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/getAllUsers`);
       this.setState({ users: response.data });
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -38,7 +38,7 @@ class Register extends Component {
 
   fetchFaculties = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getAllFaculties');
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/getAllFaculties`);
       this.setState({ faculties: response.data });
     } catch (error) {
       console.error('Error fetching faculties:', error);
@@ -48,7 +48,7 @@ class Register extends Component {
   handleAdd = async () => {
     try {
       const { formData } = this.state;
-      await axios.post('http://localhost:5000/addUser', formData);
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/addUser`, formData);
       this.fetchUsers();
       this.clearFormData();
     } catch (error) {
@@ -59,7 +59,7 @@ class Register extends Component {
   handleEdit = async () => {
     try {
       const { formData, editingUserId } = this.state;
-      await axios.put(`http://localhost:5000/updateUser/${editingUserId}`, formData);
+      await axios.put(`${process.env.REACT_APP_SERVER_URL}/updateUser/${editingUserId}`, formData);
       this.fetchUsers();
       this.clearFormData();
     } catch (error) {
@@ -69,7 +69,7 @@ class Register extends Component {
 
   handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/deleteUser/${userId}`);
+      await axios.delete(`${process.env.REACT_APP_SERVER_URL}/deleteUser/${userId}`);
       this.fetchUsers();
     } catch (error) {
       console.error('Error deleting user:', error);
@@ -169,7 +169,7 @@ class Register extends Component {
               onChange={this.handleInputChange}
             />
             <input
-              type="email"
+              type="text"
               name="email"
               value={formData.email}
               placeholder="Email"
