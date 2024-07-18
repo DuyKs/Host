@@ -93,7 +93,6 @@ app.get('/getAllFaculties', async (req, res) => {
 });
 
 // Route to add a new user (Admin or Authorized User)
-// Route to add a new user (Admin or Authorized User)
 app.post('/addUser', async (req, res) => {
   const { username, email } = req.body;
 
