@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './register.css';
 import SideMenu from '../sideMenu/SideMenu';
-
+import { FaPlus } from "react-icons/fa";
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -86,24 +86,6 @@ class Register extends Component {
     }));
   };
 
-  handleEditUser = (user) => {
-    // You should handle decryption securely on the server side.
-    // For demonstration, we assume you have decrypted password available.
-    const decryptedPassword = user.password; // Replace with actual decryption logic if available
-
-    this.setState({
-      isEditing: true,
-      editingUserId: user._id,
-      formData: {
-        username: user.username,
-        email: user.email,
-        password: decryptedPassword, // Display decrypted password
-        role: user.role,
-        faculty: user.faculty
-      }
-    });
-  };
-
   handleCancelEdit = () => {
     this.setState({
       isEditing: false,
@@ -136,6 +118,24 @@ class Register extends Component {
         password: '',
         role: '',
         faculty: ''
+      }
+    });
+  };
+
+  handleEditUser = (user) => {
+    // You should handle decryption securely on the server side.
+    // For demonstration, we assume you have decrypted password available.
+    const decryptedPassword = user.password; // Replace with actual decryption logic if available
+
+    this.setState({
+      isEditing: true,
+      editingUserId: user._id,
+      formData: {
+        username: user.username,
+        email: user.email,
+        password: decryptedPassword, // Display decrypted password
+        role: user.role,
+        faculty: user.faculty
       }
     });
   };
@@ -192,17 +192,21 @@ class Register extends Component {
                 <option key={role} value={role}>{role}</option>
               ))}
             </select>
-            <select
-              name="faculty"
-              value={formData.faculty}
-              onChange={this.handleInputChange}
-            >
-              <option value="">Select Faculty</option>
-              {faculties.map(faculty => (
-                <option key={faculty._id} value={faculty.name}>{faculty.name}</option>
-              ))}
-            </select>
-            <button type="submit">{isEditing ? 'Edit' : 'Add'}</button>
+        
+            {formData.role !== 'admin' && formData.role !== 'manager' && (
+              <select
+                name="faculty"
+                value={formData.faculty}
+                onChange={this.handleInputChange}
+              >
+                <option value="">Select Faculty</option>
+                {faculties.map(faculty => (
+                  <option key={faculty._id} value={faculty.name}>{faculty.name}</option>
+                ))}
+              </select>
+            )}
+
+            <button type="submit">{isEditing ? 'Edit' : 'Add'} </button>
             <button type="button" onClick={isEditing ? this.handleCancelEdit : this.handleCancelAdd}>Cancel</button>
           </form>
         </div>
@@ -213,14 +217,13 @@ class Register extends Component {
       <div className="user-table-container">
         <SideMenu />
         <h2>User Management</h2>
-        <button onClick={() => this.setState({ isAdding: true })}>Add</button>
+        <button onClick={() => this.setState({ isAdding: true })}> <FaPlus /> </button>
         <table className="user-table">
           <thead>
             <tr>
               <th>No</th>
               <th>Username</th>
               <th>Email</th>
-              <th>Password</th> {/* Add password header */}
               <th>Role</th>
               <th>Faculty</th>
               <th>Action</th>
@@ -232,7 +235,6 @@ class Register extends Component {
                 <td>{index + 1}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
-                <td>{user.password}</td> {/* Display decrypted password */}
                 <td>{user.role}</td>
                 <td>{user.faculty}</td>
                 <td>
