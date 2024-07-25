@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{{ asset('styles/product.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+        <nav>
+            <a href="{{ path('app_home') }}">Home</a>
+            <a href="{{ path('app_product') }}">Product</a>
+            <a href="{{ path('app_product_new') }}">Add New Product</a>
+        </nav>
+    </header>
+    <main>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price | number_format(2, '.', ',') }}</p>
+        <a href="{{ path('app_product') }}">Back to Product List</a>
+    </main>
+    <footer>
+        <p>&copy; {{ "now"|date("Y") }} Your Company</p>
+    </footer>
+</body>
+</html>

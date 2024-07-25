@@ -1,0 +1,178 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1, h2 {
+    font-family: 'Arial', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li span {
+    flex: 2;
+}
+
+li .buttons {
+    display: flex;
+    gap: 10px; /* Reduced gap between buttons */
+}
+
+/* General button styles */
+a.button,
+button.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px; /* Adjusted padding for better button size */
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em; /* Font size for text */
+    font-weight: bold; /* Make text bold */
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s; /* Transition for color and transform */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor to indicate it's clickable */
+}
+
+/* Icon styling */
+a.button i,
+button.button i {
+    margin: 0; /* Removed margin to reduce space around the icon */
+}
+
+/* Specific button colors */
+a.button.view {
+    background: #007bff; /* Blue for view */
+}
+
+a.button.edit {
+    background: #ffc107; /* Yellow for edit */
+}
+
+a.button.delete {
+    background: #dc3545; /* Red for delete */
+}
+
+a.button.add {
+    background: #28a745; /* Green for add */
+}
+
+button.button.create {
+    background: #28a745; /* Green for create */
+}
+
+a.button.return {
+    background: #007bff; /* Gray for return */
+}
+
+a.button.return:hover {
+    background: #5a6268;
+    color: #fff;
+}
+
+/* Hover effect with pressing down effect */
+a.button:hover,
+button.button:hover {
+    background-color: #5a6268; /* Darker shade on hover */
+    transform: scale(0.95); /* Slightly scale down for pressing effect */
+}
+
+/* Active effect to enhance "pressing down" feel */
+a.button:active,
+button.button:active {
+    transform: scale(0.9); /* Further scale down when clicked */
+}
+
+/* Flash message styles */
+.flash-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px; /* Slight gap between buttons */
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

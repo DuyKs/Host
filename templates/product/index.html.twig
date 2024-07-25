@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="{{ asset('styles/product.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Product Page</h1>
+        <nav>
+            <a href="{{ path('app_home') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ path('app_product') }}"><i class="fas fa-box"></i> Product</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Product List</h2>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <span>{{ product.name }}</span>
+                    <span>{{ product.price | number_format(2, '.', ',') }}</span>
+                    <a href="{{ path('app_product_details', {'id': product.id}) }}" class="button view"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}" class="button edit"><i class="fas fa-edit"></i></a>
+                    <a href="{{ path('app_product_delete', {'id': product.id}) }}" class="button delete"><i class="fas fa-trash"></i></a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ path('app_product_new') }}" class="button add"><i class="fas fa-plus"></i></a>
+    </main>
+    <footer>
+        <p>&copy; {{ "now"|date("Y") }} Your Company</p>
+    </footer>
+</body>
+</html>

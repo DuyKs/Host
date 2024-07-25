@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Home Page</h1>
+        <nav>
+            <a href="{{ path('app_home') }}">Home</a>
+            <a href="{{ path('app_product') }}">Product</a>
+        </nav>
+    </header>
+    <main>
+        <h2>{{ controller_name }}</h2>
+        <p>This is the home page.</p>
+        
+        <!-- Product Image Carousel Section -->
+        <section class="product-section">
+            <h2>Our Products</h2>
+            <div class="carousel-container">
+                <button class="carousel-control prev">&lt;</button>
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <!-- Product images with descriptions -->
+                        <div class="carousel-item" data-description="Description for Product 1">
+                            <img src="{{ asset('images/Product 1.jpg') }}" alt="Product 1">
+                        </div>
+                        <div class="carousel-item" data-description="Description for Product 2">
+                            <img src="{{ asset('images/Product 2.jpg') }}" alt="Product 2">
+                        </div>
+                        <div class="carousel-item" data-description="Description for Product 3">
+                            <img src="{{ asset('images/Product 3.jpg') }}" alt="Product 3">
+                        </div>
+                        <div class="carousel-item" data-description="Description for Product 4">
+                            <img src="{{ asset('images/Product 4.jpg') }}" alt="Product 4">
+                        </div>
+                        <div class="carousel-item" data-description="Description for Product 5">
+                            <img src="{{ asset('images/Product 5.jpg') }}" alt="Product 5">
+                        </div>
+                        <div class="carousel-item" data-description="Description for Product 6">
+                            <img src="{{ asset('images/Product 6.jpg') }}" alt="Product 6">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control next">&gt;</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; {{ "now"|date("Y") }} Your Company</p>
+    </footer>
+    <script src="{{ asset('scripts/carousel.js') }}"></script>
+</body>
+</html>
