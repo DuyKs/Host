@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
@@ -7,16 +7,23 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Home Page</h1>
-        <nav>
-            <a href="{{ path('app_home') }}">Home</a>
-            <a href="{{ path('app_product') }}">Product</a>
+        <nav class="navbar">
+            <div class="logo">FASHION</div>
+            <ul class="nav-links">
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="{{ path('app_product') }}">Product</a></li>
+            </ul>
         </nav>
+        <div class="header-content">
+            <div class="header-content" style="background-image: url('{{ asset('images/Background 3.png') }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+            <h1 class="gradient__text">Explore the World of Fashion:</h1>
+            <h1 class="gradient__text">Your Style, Your Statement!</h1>
+            <p>Embrace the beauty of self-expression through fashion. Discover the latest trends, timeless pieces, and everything in between. Whether you're seeking inspiration or looking to redefine your wardrobe, we are here to guide you. Fashion is not just about clothes; it's about making a statement, one outfit at a time.</p>
+        </div>
+    </header>
+        </div>
     </header>
     <main>
-        <h2>{{ controller_name }}</h2>
-        <p>This is the home page.</p>
-        
         <!-- Product Image Carousel Section -->
         <section class="product-section">
             <h2>Our Products</h2>

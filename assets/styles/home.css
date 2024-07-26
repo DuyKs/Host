@@ -1,4 +1,79 @@
 /* General Styles */
+:root {
+    --font-family: 'Manrope', sans-serif;
+    --gradient-text: linear-gradient(89.97deg, #3fb2ff 1.84%, #3037bd 102.67%);
+    --gradient-bar: linear-gradient(103.22deg, #19A7Ce -13.86%, #146C94 99.55%);
+    --color-bgf: #ffff;
+    --color-bg: #040C18;
+    --color-footer: #031B34;
+    --color-blog: #042c54;
+    --color-text: #81AFDD;
+    --color-subtext: #ff8b71a1;
+}
+
+/* NavBar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-bg);
+    color: white;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-subtext);
+}
+
+/* Header Content Styles */
+.header-content {
+    text-align: center;
+    padding: 5rem;
+    border-radius: 10px;
+    background-size: fit;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+}
+
+.header-content h1 {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 75px;
+    letter-spacing: -0.04em;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-content p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: white;
+    margin-top: 1.5rem;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -8,18 +83,49 @@ body {
 }
 
 header {
-    background: #007bff;
+    background: #007bff00;
     color: #fff;
     padding: 20px;
     text-align: center;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.1em;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
 }
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
 
 main {
     padding: 20px;
@@ -111,49 +217,8 @@ h1, h2 {
     right: 10px;
 }
 
-/* Flash message styles */
-.flash-success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-/* Form styles */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1em;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.form-actions {
-    display: flex;
-    gap: 10px; /* Slight gap between buttons */
-    justify-content: flex-end; /* Align buttons to the right */
+.product-section {
+    margin-bottom: 60px; /* Adjust this value as needed to ensure enough space for the footer */
 }
 
 footer {

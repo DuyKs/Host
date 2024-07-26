@@ -17,8 +17,11 @@ class ProductController extends AbstractController
     {
         $products = $entityManager->getRepository(Product::class)->findAll();
 
+        $productCount = count($products);
+
         return $this->render('product/index.html.twig', [
             'products' => $products,
+            'product_count' => $productCount
         ]);
     }
 
@@ -86,19 +89,12 @@ class ProductController extends AbstractController
     }
 
     #[Route('/product/{id}/delete', name: 'app_product_delete', methods: ['POST'])]
-    public function delete(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Product $product, EntityManagerInterface $entityManager): Response
     {
-        $product = $entityManager->getRepository(Product::class)->find($id);
-
-        if (!$product) {
-            throw $this->createNotFoundException('Product not found');
-        }
-
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
             $entityManager->remove($product);
             $entityManager->flush();
 
-            // Add a flash message
             $this->addFlash('success', 'Product deleted successfully!');
         }
 

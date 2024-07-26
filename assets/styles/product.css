@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: #007bff;
+    background: #040C18;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -55,6 +55,28 @@ li .buttons {
     display: flex;
     gap: 10px; /* Reduced gap between buttons */
 }
+/* Table styling */
+table {
+    align-items: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
 /* General button styles */
 a.button,
@@ -88,7 +110,7 @@ a.button.edit {
     background: #ffc107; /* Yellow for edit */
 }
 
-a.button.delete {
+button.delete {
     background: #dc3545; /* Red for delete */
 }
 
@@ -133,6 +155,15 @@ button.button:active {
 }
 
 /* Form styles */
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -164,7 +195,134 @@ button.button:active {
 .form-actions {
     display: flex;
     gap: 10px; /* Slight gap between buttons */
-    justify-content: flex-end; /* Align buttons to the right */
+    justify-content: flex-start; /* Align buttons to the right */
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 20px; /* Space below each form group */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between label and input */
+}
+
+.form-group label {
+    font-size: 16px; /* Default font size for labels */
+    color: #333; /* Default text color */
+    margin-bottom: 5px; /* Space below the label */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%; /* Full width to fit the container */
+    max-width: 600px; /* Maximum width for the form elements */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px; /* Default font size for inputs and textareas */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    resize: vertical; /* Allow vertical resizing for textareas */
+}
+
+/* Textarea Specific Styles */
+.form-group textarea {
+    min-height: 100px; /* Minimum height for textareas */
+    overflow: auto; /* Add scrollbar if needed */
+}
+
+/* Form for product details */
+.product-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+}
+.product-info h2 {
+    margin-top: 0;
+}
+.product-info p {
+    margin: 10px 0;
+}
+.product-info .price {
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+
+/* Product Edit */
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    color: #fff;
+    background: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s; /* Transition for color and transform */
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+.button.save {
+    background: #28a745;
+}
+
+.button.save:hover {
+    background: #218838;
+}
+
+.button.cancel {
+    background: #007bff;
+}
+
+.button.cancel:hover {
+    background: #5a6268;
 }
 
 footer {
@@ -175,4 +333,57 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+.product-container {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    text-align: center;
+}
+
+.product-details h2 {
+    margin-top: 0;
+    font-size: 2em;
+    color: #343a40;
+}
+
+.product-details .description {
+    font-size: 1.1em;
+    color: #6c757d;
+}
+
+.product-details .price {
+    font-size: 1.5em;
+    color: #28a745;
+    margin: 20px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+.button.return {
+    background: #6c757d;
+}
+
+.button.return:hover {
+    background: #5a6268;
 }
