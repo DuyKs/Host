@@ -1,0 +1,112 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaHome, FaSignOutAlt, FaUser } from 'react-icons/fa';
+import { IoMdPersonAdd } from "react-icons/io";
+import { BsWindowPlus } from "react-icons/bs";
+import { GrAdd } from "react-icons/gr";
+import { MdPublishedWithChanges } from "react-icons/md";
+
+import './sideMenu.css';
+
+const SideMenu = () => {
+  const [collapsed, setCollapsed] = useState(true);
+  const [username, setUsername] = useState('');
+  const [userRole, setUserRole] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const usernameParam = searchParams.get('username');
+    if (usernameParam) {
+      setUsername(usernameParam);
+      // Fetch user role based on the username
+      fetchUserRole(usernameParam);
+    }
+  }, [location]);
+
+  // Function to fetch user role based on username
+  const fetchUserRole = async (username) => {
+    try {
+      // Make an API call to fetch the user's role
+      const response = await fetch(`http://localhost:5000/fetchRoleBaseOnUsername?username=${username}`);
+      if (response.ok) {
+        const data = await response.json();
+        setUserRole(data.role); // Assuming the response contains the user's role
+      } else {
+        console.error('Failed to fetch user role:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching user role:', error);
+    }
+  };
+
+  const toggle = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const handleLogout = () => {
+    // Clear user information
+    setUsername('');
+    setUserRole('');
+    // Navigate to the login page
+    navigate('/login');
+  };
+
+  return (
+    <div className={`sider ${collapsed ? 'collapsed' : ''}`}>
+      <div className="trigger" onClick={toggle}>
+        {collapsed ? (
+          <span>&#x2630;</span>
+        ) : (
+          <span>&#x2715;</span>
+        )}
+      </div>
+      <ul className="menu">
+        {userRole === 'admin' && (
+          <>
+            <li>
+              <Link to={`/admin/dashboard?username=${username}`}>
+                {collapsed ? <FaHome /> : <span>Dashboard</span>}
+              </Link>
+            </li>
+            <li>
+              <Link to={`/admin/submissionwindow?username=${username}`}>
+                {collapsed ? <BsWindowPlus /> : <span>Submission Window</span>}
+              </Link>
+            </li>
+            <li>
+              <Link to={`/admin/register?username=${username}`}>
+                {collapsed ? <IoMdPersonAdd /> : <span>Registration</span>}
+              </Link>
+            </li>
+            <li>
+              <Link to={`/admin/faculty?username=${username}`}>
+                {collapsed ? <GrAdd  /> : <span>Faculties</span>}
+              </Link>
+            </li>
+            <li>
+            <Link to={`/publicmagazine?username=${username}&userRole=${userRole}`}>
+                {collapsed ? <MdPublishedWithChanges /> : <span>Submissions</span>}
+              </Link>
+            </li>
+          </>
+        )}
+        <li>
+          <Link to="/login" onClick={handleLogout}>
+            {collapsed ? <FaSignOutAlt /> : <span>Logout</span>}
+          </Link>
+        </li>
+      </ul>
+      <div className="user-info">
+        {collapsed ? (
+          <FaUser />
+        ) : (
+          <p>{username}</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default SideMenu;

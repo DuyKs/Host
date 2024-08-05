@@ -1,0 +1,81 @@
+/* Apply styles to the entire page */
+.publish-selected-submission {
+  color: white; /* Text color */
+}
+
+/* Style the title */
+.publish-selected-submission h2 {
+  color: white; /* White color for the title */
+}
+
+/* Center the table horizontally */
+.publish-selected-submission table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%; /* Adjust width as needed */
+}
+
+/* Style table header */
+.publish-selected-submission thead {
+  background-color: #555; /* Darker background color */
+}
+
+/* Style table header cells */
+.publish-selected-submission th {
+  padding: 12px;
+  text-align: center;
+}
+
+/* Style table body rows */
+.publish-selected-submission tbody tr:nth-child(even) {
+  background-color: #444; /* Dark background color for even rows */
+}
+
+.publish-selected-submission tbody tr:nth-child(odd) {
+  background-color: #222; /* Darker background color for odd rows */
+}
+
+/* Style table body cells */
+.publish-selected-submission td {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Style links within the table */
+.publish-selected-submission a {
+  color: #99f; /* Link color */
+  text-decoration: none;
+}
+
+.publish-selected-submission a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+
+/* Style the image within the table */
+.publish-selected-submission .submission-image {
+  max-width: 150px; /* Set maximum width */
+  max-height: 100px; /* Set maximum height */
+  width: auto; /* Allow image to adjust width */
+  height: auto; /* Allow image to adjust height */
+}
+
+/* Ensure image maintains aspect ratio */
+.publish-selected-submission .submission-image img {
+  width: 100%; /* Make image fill its container */
+  height: auto; /* Allow image to adjust height */
+}
+/* CSS for translucent background and blue icon color */
+.view-button {
+  background-color: rgba(0, 0, 255, 0); /* Adjust the alpha value (0.3) for translucency */
+  border: none;
+  color: blue; /* Blue color for the icon */
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+
+.view-button:hover {
+  background-color: rgba(0, 0, 255, 0); /* Adjust the alpha value (0.5) for hover effect */
+}
