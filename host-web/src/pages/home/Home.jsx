@@ -13,7 +13,7 @@ import './home.css';
 const Home = () => {
   return (
     <div className="student-container">
-      <Navbar/>
+      <NavbarLogined/>
       <div className="main-content">
       <Header />
       <Wim />
